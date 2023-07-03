@@ -1221,11 +1221,11 @@ Board.prototype.toggleButtons = function() {
       mazeGenerationAnimations(this);
     }
 
-    document.getElementById("startButtonCreateMazeWeights").onclick = () => {
-      this.clearWalls();
-      this.clearPath("clickedButton");
-      this.createMazeOne("weight");
-    }
+    // document.getElementById("startButtonCreateMazeWeights").onclick = () => {
+    //   this.clearWalls();
+    //   this.clearPath("clickedButton");
+    //   this.createMazeOne("weight");
+    // }
 
     document.getElementById("startButtonClearBoard").onclick = () => {
       document.getElementById("startButtonAddObject").innerHTML = '<a href="#">Add Bomb</a></li>';
@@ -1291,21 +1291,21 @@ Board.prototype.toggleButtons = function() {
       this.clearPath("clickedButton");
     }
 
-    document.getElementById("startButtonCreateMazeThree").onclick = () => {
-      this.clearWalls();
-      this.clearPath("clickedButton");
-      this.toggleButtons();
-      otherMaze(this, 2, this.height - 3, 2, this.width - 3, "vertical", false);
-      mazeGenerationAnimations(this);
-    }
+    // document.getElementById("startButtonCreateMazeThree").onclick = () => {
+    //   this.clearWalls();
+    //   this.clearPath("clickedButton");
+    //   this.toggleButtons();
+    //   otherMaze(this, 2, this.height - 3, 2, this.width - 3, "vertical", false);
+    //   mazeGenerationAnimations(this);
+    // }
 
-    document.getElementById("startButtonCreateMazeFour").onclick = () => {
-      this.clearWalls();
-      this.clearPath("clickedButton");
-      this.toggleButtons();
-      otherOtherMaze(this, 2, this.height - 3, 2, this.width - 3, "horizontal", false);
-      mazeGenerationAnimations(this);
-    }
+    // document.getElementById("startButtonCreateMazeFour").onclick = () => {
+    //   this.clearWalls();
+    //   this.clearPath("clickedButton");
+    //   this.toggleButtons();
+    //   otherOtherMaze(this, 2, this.height - 3, 2, this.width - 3, "horizontal", false);
+    //   mazeGenerationAnimations(this);
+    // }
 
     document.getElementById("startButtonAddObject").onclick = () => {
       let innerHTML = document.getElementById("startButtonAddObject").innerHTML;
@@ -1346,9 +1346,9 @@ Board.prototype.toggleButtons = function() {
     }
     document.getElementById("startButtonCreateMazeOne").className = "navbar-inverse navbar-nav";
     document.getElementById("startButtonCreateMazeTwo").className = "navbar-inverse navbar-nav";
-    document.getElementById("startButtonCreateMazeThree").className = "navbar-inverse navbar-nav";
-    document.getElementById("startButtonCreateMazeFour").className = "navbar-inverse navbar-nav";
-    document.getElementById("startButtonCreateMazeWeights").className = "navbar-inverse navbar-nav";
+    // document.getElementById("startButtonCreateMazeThree").className = "navbar-inverse navbar-nav";
+    // document.getElementById("startButtonCreateMazeFour").className = "navbar-inverse navbar-nav";
+    // document.getElementById("startButtonCreateMazeWeights").className = "navbar-inverse navbar-nav";
     document.getElementById("startStairDemonstration").className = "navbar-inverse navbar-nav";
     document.getElementById("startButtonDFS").className = "navbar-inverse navbar-nav";
     document.getElementById("startButtonBFS").className = "navbar-inverse navbar-nav";
@@ -1376,9 +1376,9 @@ Board.prototype.toggleButtons = function() {
     // document.getElementById("startButtonBidirectional").onclick = null;
     document.getElementById("startButtonCreateMazeOne").onclick = null;
     document.getElementById("startButtonCreateMazeTwo").onclick = null;
-    document.getElementById("startButtonCreateMazeThree").onclick = null;
-    document.getElementById("startButtonCreateMazeFour").onclick = null;
-    document.getElementById("startButtonCreateMazeWeights").onclick = null;
+    // document.getElementById("startButtonCreateMazeThree").onclick = null;
+    // document.getElementById("startButtonCreateMazeFour").onclick = null;
+    // document.getElementById("startButtonCreateMazeWeights").onclick = null;
     document.getElementById("startStairDemonstration").onclick = null;
     document.getElementById("startButtonClearPath").onclick = null;
     document.getElementById("startButtonClearWalls").onclick = null;
@@ -1397,9 +1397,9 @@ Board.prototype.toggleButtons = function() {
     document.getElementById("startButtonAddObject").className = "navbar-inverse navbar-nav disabledA";
     document.getElementById("startButtonCreateMazeOne").className = "navbar-inverse navbar-nav disabledA";
     document.getElementById("startButtonCreateMazeTwo").className = "navbar-inverse navbar-nav disabledA";
-    document.getElementById("startButtonCreateMazeThree").className = "navbar-inverse navbar-nav disabledA";
-    document.getElementById("startButtonCreateMazeFour").className = "navbar-inverse navbar-nav disabledA";
-    document.getElementById("startButtonCreateMazeWeights").className = "navbar-inverse navbar-nav disabledA";
+    // document.getElementById("startButtonCreateMazeThree").className = "navbar-inverse navbar-nav disabledA";
+    // document.getElementById("startButtonCreateMazeFour").className = "navbar-inverse navbar-nav disabledA";
+    // document.getElementById("startButtonCreateMazeWeights").className = "navbar-inverse navbar-nav disabledA";
     document.getElementById("startStairDemonstration").className = "navbar-inverse navbar-nav disabledA";
     document.getElementById("startButtonDFS").className = "navbar-inverse navbar-nav disabledA";
     document.getElementById("startButtonBFS").className = "navbar-inverse navbar-nav disabledA";
