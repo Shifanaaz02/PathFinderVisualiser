@@ -23,6 +23,8 @@ You will see the green nodes slowly fill up the adjacent nodes in the grid - thi
 ## Features
 
 **Responsive design for the grid and components try it out on mobile, tablet and desktop!**
+
 **Can generate random walls or draw them**
+
 **Can drag the start and finish (on desktop)**
 
