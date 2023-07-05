@@ -323,8 +323,8 @@ const mazeGenerationAnimations = require("./animations/mazeGenerationAnimations"
 const weightedSearchAlgorithm = require("./pathfindingAlgorithms/weightedSearchAlgorithm");
 const unweightedSearchAlgorithm = require("./pathfindingAlgorithms/unweightedSearchAlgorithm");
 const recursiveDivisionMaze = require("./mazeAlgorithms/recursiveDivisionMaze");
-const otherMaze = require("./mazeAlgorithms/otherMaze");
-const otherOtherMaze = require("./mazeAlgorithms/otherOtherMaze");
+// const otherMaze = require("./mazeAlgorithms/otherMaze");
+// const otherOtherMaze = require("./mazeAlgorithms/otherOtherMaze");
 const astar = require("./pathfindingAlgorithms/astar");
 const stairDemonstration = require("./mazeAlgorithms/stairDemonstration");
 const weightsDemonstration = require("./mazeAlgorithms/weightsDemonstration");
@@ -538,44 +538,45 @@ Board.prototype.drawShortestPath = function(targetNodeId, startNodeId, object) {
         currentNode = this.nodes[currentNode.previousNode];
       }
     }
-  } else {
-    if (this.middleNode !== this.target && this.middleNode !== this.start) {
-      currentNode = this.nodes[this.nodes[this.middleNode].previousNode];
-      secondCurrentNode = this.nodes[this.nodes[this.middleNode].otherpreviousNode];
-      if (secondCurrentNode.id === this.target) {
-        this.nodes[this.target].direction = getDistance(this.nodes[this.middleNode], this.nodes[this.target])[2];
-      }
-      if (this.nodes[this.middleNode].weight === 0) {
-        document.getElementById(this.middleNode).className = `shortest-path`;
-      } else {
-        document.getElementById(this.middleNode).className = `shortest-path weight`;
-      }
-      while (currentNode.id !== startNodeId) {
-        this.shortestPathNodesToAnimate.unshift(currentNode);
-        document.getElementById(currentNode.id).className = `shortest-path`;
-        currentNode = this.nodes[currentNode.previousNode];
-      }
-      while (secondCurrentNode.id !== targetNodeId) {
-        this.shortestPathNodesToAnimate.unshift(secondCurrentNode);
-        document.getElementById(secondCurrentNode.id).className = `shortest-path`;
-        if (secondCurrentNode.otherpreviousNode === targetNodeId) {
-          if (secondCurrentNode.otherdirection === "left") {
-            secondCurrentNode.direction = "right";
-          } else if (secondCurrentNode.otherdirection === "right") {
-            secondCurrentNode.direction = "left";
-          } else if (secondCurrentNode.otherdirection === "up") {
-            secondCurrentNode.direction = "down";
-          } else if (secondCurrentNode.otherdirection === "down") {
-            secondCurrentNode.direction = "up";
-          }
-          this.nodes[this.target].direction = getDistance(secondCurrentNode, this.nodes[this.target])[2];
-        }
-        secondCurrentNode = this.nodes[secondCurrentNode.otherpreviousNode]
-      }
-    } else {
-      document.getElementById(this.nodes[this.target].previousNode).className = `shortest-path`;
-    }
-  }
+  } 
+  // else {
+  //   if (this.middleNode !== this.target && this.middleNode !== this.start) {
+  //     currentNode = this.nodes[this.nodes[this.middleNode].previousNode];
+  //     secondCurrentNode = this.nodes[this.nodes[this.middleNode].otherpreviousNode];
+  //     if (secondCurrentNode.id === this.target) {
+  //       this.nodes[this.target].direction = getDistance(this.nodes[this.middleNode], this.nodes[this.target])[2];
+  //     }
+  //     if (this.nodes[this.middleNode].weight === 0) {
+  //       document.getElementById(this.middleNode).className = `shortest-path`;
+  //     } else {
+  //       document.getElementById(this.middleNode).className = `shortest-path weight`;
+  //     }
+  //     while (currentNode.id !== startNodeId) {
+  //       this.shortestPathNodesToAnimate.unshift(currentNode);
+  //       document.getElementById(currentNode.id).className = `shortest-path`;
+  //       currentNode = this.nodes[currentNode.previousNode];
+  //     }
+  //     while (secondCurrentNode.id !== targetNodeId) {
+  //       this.shortestPathNodesToAnimate.unshift(secondCurrentNode);
+  //       document.getElementById(secondCurrentNode.id).className = `shortest-path`;
+  //       if (secondCurrentNode.otherpreviousNode === targetNodeId) {
+  //         if (secondCurrentNode.otherdirection === "left") {
+  //           secondCurrentNode.direction = "right";
+  //         } else if (secondCurrentNode.otherdirection === "right") {
+  //           secondCurrentNode.direction = "left";
+  //         } else if (secondCurrentNode.otherdirection === "up") {
+  //           secondCurrentNode.direction = "down";
+  //         } else if (secondCurrentNode.otherdirection === "down") {
+  //           secondCurrentNode.direction = "up";
+  //         }
+  //         this.nodes[this.target].direction = getDistance(secondCurrentNode, this.nodes[this.target])[2];
+  //       }
+  //       secondCurrentNode = this.nodes[secondCurrentNode.otherpreviousNode]
+  //     }
+  //   } else {
+  //     document.getElementById(this.nodes[this.target].previousNode).className = `shortest-path`;
+  //   }
+  // }
 };
 
 Board.prototype.addShortestPath = function(targetNodeId, startNodeId, object) {
@@ -958,14 +959,14 @@ Board.prototype.changeStartNodeImages = function() {
     name = "Dijkstra's Algorithm";
   } else if (this.currentAlgorithm === "astar") {
     name = "A* Search";
-  } else if (this.currentAlgorithm === "greedy") {
-    name = "Greedy Best-first Search";
-  } else if (this.currentAlgorithm === "CLA" && this.currentHeuristic !== "extraPoweredManhattanDistance") {
-    name = "Swarm Algorithm";
-  } else if (this.currentAlgorithm === "CLA" && this.currentHeuristic === "extraPoweredManhattanDistance") {
-    name = "Convergent Swarm Algorithm";
-  } else if (this.currentAlgorithm === "bidirectional") {
-    name = "Bidirectional Swarm Algorithm";
+  // } else if (this.currentAlgorithm === "greedy") {
+  //   name = "Greedy Best-first Search";
+  // } else if (this.currentAlgorithm === "CLA" && this.currentHeuristic !== "extraPoweredManhattanDistance") {
+  //   name = "Swarm Algorithm";
+  // } else if (this.currentAlgorithm === "CLA" && this.currentHeuristic === "extraPoweredManhattanDistance") {
+  //   name = "Convergent Swarm Algorithm";
+  // } else if (this.currentAlgorithm === "bidirectional") {
+  //   name = "Bidirectional Swarm Algorithm";
   }
   if (unweighted.includes(this.currentAlgorithm)) {
     if (this.currentAlgorithm === "dfs") {
@@ -1021,17 +1022,18 @@ Board.prototype.toggleButtons = function() {
         let weightedAlgorithms = ["dijkstra", "CLA", "CLA", "greedy"];
         let unweightedAlgorithms = ["dfs", "bfs"];
         let success;
-        if (this.currentAlgorithm === "bidirectional") {
-          if (!this.numberOfObjects) {
-            success = bidirectional(this.nodes, this.start, this.target, this.nodesToAnimate, this.boardArray, this.currentAlgorithm, this.currentHeuristic, this);
-            launchAnimations(this, success, "weighted");
-          } else {
-            this.isObject = true;
-            success = bidirectional(this.nodes, this.start, this.object, this.nodesToAnimate, this.boardArray, this.currentAlgorithm, this.currentHeuristic, this);
-            launchAnimations(this, success, "weighted");
-          }
-          this.algoDone = true;
-        } else if (this.currentAlgorithm === "astar") {
+        // if (this.currentAlgorithm === "bidirectional") {
+        //   if (!this.numberOfObjects) {
+        //     success = bidirectional(this.nodes, this.start, this.target, this.nodesToAnimate, this.boardArray, this.currentAlgorithm, this.currentHeuristic, this);
+        //     launchAnimations(this, success, "weighted");
+        //   } else {
+        //     this.isObject = true;
+        //     success = bidirectional(this.nodes, this.start, this.object, this.nodesToAnimate, this.boardArray, this.currentAlgorithm, this.currentHeuristic, this);
+        //     launchAnimations(this, success, "weighted");
+        //   }
+        //   this.algoDone = true;
+        // } else 
+        if (this.currentAlgorithm === "astar") {
           if (!this.numberOfObjects) {
             success = weightedSearchAlgorithm(this.nodes, this.start, this.target, this.nodesToAnimate, this.boardArray, this.currentAlgorithm, this.currentHeuristic);
             launchAnimations(this, success, "weighted");
@@ -1296,7 +1298,7 @@ window.onkeyup = (e) => {
   newBoard.keyDown = false;
 }
 
-},{"./animations/launchAnimations":1,"./animations/launchInstantAnimations":2,"./animations/mazeGenerationAnimations":3,"./getDistance":5,"./mazeAlgorithms/otherMaze":6,"./mazeAlgorithms/otherOtherMaze":7,"./mazeAlgorithms/recursiveDivisionMaze":8,"./mazeAlgorithms/simpleDemonstration":9,"./mazeAlgorithms/stairDemonstration":10,"./mazeAlgorithms/weightsDemonstration":11,"./node":12,"./pathfindingAlgorithms/astar":13,"./pathfindingAlgorithms/bidirectional":14,"./pathfindingAlgorithms/unweightedSearchAlgorithm":15,"./pathfindingAlgorithms/weightedSearchAlgorithm":16}],5:[function(require,module,exports){
+},{"./animations/launchAnimations":1,"./animations/launchInstantAnimations":2,"./animations/mazeGenerationAnimations":3,"./getDistance":5,"./mazeAlgorithms/recursiveDivisionMaze":8,"./mazeAlgorithms/simpleDemonstration":9,"./mazeAlgorithms/stairDemonstration":10,"./mazeAlgorithms/weightsDemonstration":11,"./node":12,"./pathfindingAlgorithms/astar":13,"./pathfindingAlgorithms/bidirectional":14,"./pathfindingAlgorithms/unweightedSearchAlgorithm":15,"./pathfindingAlgorithms/weightedSearchAlgorithm":16}],5:[function(require,module,exports){
 function getDistance(nodeOne, nodeTwo) {
   let currentCoordinates = nodeOne.id.split("-");
   let targetCoordinates = nodeTwo.id.split("-");
