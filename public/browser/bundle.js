@@ -539,44 +539,7 @@ Board.prototype.drawShortestPath = function(targetNodeId, startNodeId, object) {
       }
     }
   } 
-  // else {
-  //   if (this.middleNode !== this.target && this.middleNode !== this.start) {
-  //     currentNode = this.nodes[this.nodes[this.middleNode].previousNode];
-  //     secondCurrentNode = this.nodes[this.nodes[this.middleNode].otherpreviousNode];
-  //     if (secondCurrentNode.id === this.target) {
-  //       this.nodes[this.target].direction = getDistance(this.nodes[this.middleNode], this.nodes[this.target])[2];
-  //     }
-  //     if (this.nodes[this.middleNode].weight === 0) {
-  //       document.getElementById(this.middleNode).className = `shortest-path`;
-  //     } else {
-  //       document.getElementById(this.middleNode).className = `shortest-path weight`;
-  //     }
-  //     while (currentNode.id !== startNodeId) {
-  //       this.shortestPathNodesToAnimate.unshift(currentNode);
-  //       document.getElementById(currentNode.id).className = `shortest-path`;
-  //       currentNode = this.nodes[currentNode.previousNode];
-  //     }
-  //     while (secondCurrentNode.id !== targetNodeId) {
-  //       this.shortestPathNodesToAnimate.unshift(secondCurrentNode);
-  //       document.getElementById(secondCurrentNode.id).className = `shortest-path`;
-  //       if (secondCurrentNode.otherpreviousNode === targetNodeId) {
-  //         if (secondCurrentNode.otherdirection === "left") {
-  //           secondCurrentNode.direction = "right";
-  //         } else if (secondCurrentNode.otherdirection === "right") {
-  //           secondCurrentNode.direction = "left";
-  //         } else if (secondCurrentNode.otherdirection === "up") {
-  //           secondCurrentNode.direction = "down";
-  //         } else if (secondCurrentNode.otherdirection === "down") {
-  //           secondCurrentNode.direction = "up";
-  //         }
-  //         this.nodes[this.target].direction = getDistance(secondCurrentNode, this.nodes[this.target])[2];
-  //       }
-  //       secondCurrentNode = this.nodes[secondCurrentNode.otherpreviousNode]
-  //     }
-  //   } else {
-  //     document.getElementById(this.nodes[this.target].previousNode).className = `shortest-path`;
-  //   }
-  // }
+  
 };
 
 Board.prototype.addShortestPath = function(targetNodeId, startNodeId, object) {
@@ -1124,14 +1087,6 @@ Board.prototype.toggleButtons = function() {
       this.createMazeOne("wall");
     }
 
-    document.getElementById("startButtonCreateMazeTwo").onclick = () => {
-      this.clearWalls();
-      this.clearPath("clickedButton");
-      this.toggleButtons();
-      recursiveDivisionMaze(this, 2, this.height - 3, 2, this.width - 3, "horizontal", false, "wall");
-      mazeGenerationAnimations(this);
-    }
-
     document.getElementById("startButtonClearBoard").onclick = () => {
       document.getElementById("startButtonAddObject").innerHTML = '<a href="#">Add Bomb</a></li>';
 
@@ -1234,7 +1189,6 @@ Board.prototype.toggleButtons = function() {
       document.getElementById("startButtonAddObject").className = "navbar-inverse navbar-nav";
     }
     document.getElementById("startButtonCreateMazeOne").className = "navbar-inverse navbar-nav";
-    document.getElementById("startButtonCreateMazeTwo").className = "navbar-inverse navbar-nav";
     document.getElementById("startStairDemonstration").className = "navbar-inverse navbar-nav";
     document.getElementById("startButtonDFS").className = "navbar-inverse navbar-nav";
     document.getElementById("startButtonBFS").className = "navbar-inverse navbar-nav";
@@ -1253,7 +1207,6 @@ Board.prototype.toggleButtons = function() {
     document.getElementById("startButtonAddObject").onclick = null;
     document.getElementById("startButtonAStar2").onclick = null;
     document.getElementById("startButtonCreateMazeOne").onclick = null;
-    document.getElementById("startButtonCreateMazeTwo").onclick = null;
     document.getElementById("startStairDemonstration").onclick = null;
     document.getElementById("startButtonClearPath").onclick = null;
     document.getElementById("startButtonClearWalls").onclick = null;
@@ -1271,7 +1224,6 @@ Board.prototype.toggleButtons = function() {
     document.getElementById("startButtonClearBoard").className = "navbar-inverse navbar-nav disabledA";
     document.getElementById("startButtonAddObject").className = "navbar-inverse navbar-nav disabledA";
     document.getElementById("startButtonCreateMazeOne").className = "navbar-inverse navbar-nav disabledA";
-    document.getElementById("startButtonCreateMazeTwo").className = "navbar-inverse navbar-nav disabledA";
     document.getElementById("startStairDemonstration").className = "navbar-inverse navbar-nav disabledA";
     document.getElementById("startButtonDFS").className = "navbar-inverse navbar-nav disabledA";
     document.getElementById("startButtonBFS").className = "navbar-inverse navbar-nav disabledA";
